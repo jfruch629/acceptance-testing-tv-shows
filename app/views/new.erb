@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>New Show Listing</title>
+    <link rel="stylesheet" href="./public/stylesheets/style.css">
+  </head>
+
+  <body>
+    <h1>Add Show Details</h1>
+
+    <div class='errors' style="color:red;">
+      <% if session[:error_read] == true %>
+        Please fill in all required fields: <br><br>
+        <% session[:errors].each do |error| %>
+          <%= error %><br>
+        <% end %>
+      <% end %>
+      <br>
+    </div class='errors'>
+
+    <form action="/create" method="post">
+      <div class="form-show">
+        <label for="show_template">Title</label>
+        <input type="text" id="Title" name="title">
+      </div><br>
+
+      <div class="form-show">
+        <label for="show_template">Network</label>
+        <input type="text" id="Network" name="network">
+      </div><br>
+
+      <div class="form-show">
+        <label for="show_template">Starting Year</label>
+        <input type="text" id="Starting Year" name="starting_year">
+      </div><br>
+
+      <div class="form-show">
+        <label for="show_template">Synopsis</label>
+        <input type="text" id="Synopsis" name="synopsis">
+      </div><br>
+
+      <div class="form-show">
+        <label for="show_template">Genre</label>
+        <select name="genre" id="Genre">
+          <option value=""></option>
+          <option value="Action">Action</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Fantasy">Fantasy</option>
+        </select>
+      </div><br>
+
+      <div class="form-show">
+        <input type="submit" value="Add TV Show">
+      </div>
+    </form>
+    <br>
+
+    <h3><a href="/television_shows">Return to all Shows</a></h3>
+
+  </body>
+</html>
